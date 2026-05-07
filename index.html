@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
 <title>Shay</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -13,50 +14,31 @@
 –black: #080808;
 –off-black: #111111;
 –panel: #161616;
-–border: #242424;
+–border: #2a2a2a;
 –gold: #C9A84C;
-–gold-dim: rgba(201,168,76,0.15);
 –white: #F4F1EC;
 –gray: #888880;
 –light: #C8C5BE;
 }
 
-html { scroll-behavior: smooth; }
+html {
+scroll-behavior: smooth;
+background: #080808;
+}
 
 body {
-background: var(–black);
-color: var(–white);
+background-color: #080808 !important;
+color: #F4F1EC !important;
 font-family: ‘Montserrat’, sans-serif;
 font-weight: 300;
 overflow-x: hidden;
-cursor: none;
+-webkit-text-size-adjust: 100%;
 }
 
-/* Custom cursor */
-.cursor {
-position: fixed;
-width: 8px; height: 8px;
-background: var(–gold);
-border-radius: 50%;
-pointer-events: none;
-z-index: 9999;
-transform: translate(-50%, -50%);
-transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-}
-.cursor-ring {
-position: fixed;
-width: 32px; height: 32px;
-border: 1px solid rgba(201,168,76,0.4);
-border-radius: 50%;
-pointer-events: none;
-z-index: 9998;
-transform: translate(-50%, -50%);
-transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
-}
-body:has(a:hover) .cursor,
-body:has(button:hover) .cursor { width: 14px; height: 14px; }
+/* Force dark on all elements */
+section, nav, footer, div { background-color: transparent; }
 
-/* Nav */
+/* NAV */
 nav {
 position: fixed;
 top: 0; left: 0; right: 0;
@@ -64,89 +46,76 @@ z-index: 100;
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 28px 60px;
-background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
+padding: 24px 32px;
+background: linear-gradient(to bottom, rgba(8,8,8,0.98) 60%, transparent);
 }
 .nav-logo {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: 22px;
+font-size: 20px;
 font-weight: 300;
 letter-spacing: 8px;
-color: var(–white);
+color: #F4F1EC;
 text-decoration: none;
 }
 .nav-links {
 display: flex;
-gap: 40px;
+gap: 24px;
 list-style: none;
 }
 .nav-links a {
-font-size: 10px;
-letter-spacing: 3px;
+font-size: 9px;
+letter-spacing: 2px;
 text-transform: uppercase;
-color: var(–gray);
+color: #888880;
 text-decoration: none;
-transition: color 0.3s;
 }
-.nav-links a:hover { color: var(–gold); }
 
-/* Hero */
+/* HERO */
 .hero {
 min-height: 100vh;
+min-height: 100dvh;
 display: flex;
 flex-direction: column;
 justify-content: center;
-align-items: flex-start;
-padding: 0 60px;
+padding: 100px 32px 60px;
 position: relative;
-overflow: hidden;
-}
-.hero::before {
-content: ‘’;
-position: absolute;
-top: -20%; right: -10%;
-width: 600px; height: 600px;
-background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
-pointer-events: none;
+background-color: #080808;
 }
 .hero-eyebrow {
 font-size: 9px;
-letter-spacing: 5px;
+letter-spacing: 4px;
 text-transform: uppercase;
-color: var(–gold);
-margin-bottom: 28px;
+color: #C9A84C;
+margin-bottom: 24px;
 opacity: 0;
 animation: fadeUp 0.8s ease 0.2s forwards;
 }
 .hero-name {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(90px, 14vw, 160px);
+font-size: clamp(80px, 22vw, 160px);
 font-weight: 300;
 line-height: 0.9;
 letter-spacing: -2px;
-color: var(–white);
+color: #F4F1EC;
 opacity: 0;
 animation: fadeUp 0.9s ease 0.35s forwards;
 }
 .hero-name em {
 font-style: italic;
-color: var(–gold);
+color: #C9A84C;
 }
 .hero-sub {
-margin-top: 32px;
+margin-top: 28px;
 font-size: 12px;
-letter-spacing: 2px;
-color: var(–light);
-max-width: 420px;
+letter-spacing: 1px;
+color: #C8C5BE;
+max-width: 340px;
 line-height: 2;
 opacity: 0;
 animation: fadeUp 0.9s ease 0.5s forwards;
 }
 .hero-cta {
-margin-top: 52px;
-display: flex;
-align-items: center;
-gap: 32px;
+margin-top: 44px;
 opacity: 0;
 animation: fadeUp 0.9s ease 0.65s forwards;
 }
@@ -155,321 +124,251 @@ font-family: ‘Montserrat’, sans-serif;
 font-size: 10px;
 letter-spacing: 3px;
 text-transform: uppercase;
-color: var(–black);
-background: var(–gold);
+color: #080808;
+background: #C9A84C;
 border: none;
-padding: 16px 36px;
-cursor: none;
-transition: opacity 0.3s, transform 0.3s;
+padding: 16px 32px;
 text-decoration: none;
 display: inline-block;
 }
-.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
-.btn-ghost {
-font-size: 10px;
-letter-spacing: 3px;
-text-transform: uppercase;
-color: var(–gray);
-text-decoration: none;
-transition: color 0.3s;
-display: flex;
-align-items: center;
-gap: 10px;
-}
-.btn-ghost::after {
-content: ‘→’;
-font-size: 14px;
-transition: transform 0.3s;
-}
-.btn-ghost:hover { color: var(–white); }
-.btn-ghost:hover::after { transform: translateX(4px); }
 
-.hero-line {
-position: absolute;
-right: 60px;
-top: 50%;
-transform: translateY(-50%);
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 12px;
-opacity: 0;
-animation: fadeIn 1.2s ease 1s forwards;
-}
-.hero-line span {
-font-size: 8px;
-letter-spacing: 4px;
-writing-mode: vertical-rl;
-text-transform: uppercase;
-color: var(–gray);
-}
-.hero-line::after {
-content: ‘’;
-width: 1px;
-height: 80px;
-background: linear-gradient(to bottom, var(–gold), transparent);
-}
-
-/* Divider */
+/* DIVIDER */
 .divider {
 display: flex;
 align-items: center;
-gap: 24px;
-padding: 0 60px;
-margin: 80px 0;
+gap: 20px;
+padding: 0 32px;
+margin: 60px 0;
+background-color: #080808;
 }
 .divider::before, .divider::after {
 content: ‘’;
 flex: 1;
 height: 1px;
-background: var(–border);
+background: #2a2a2a;
 }
 .divider-text {
 font-size: 8px;
 letter-spacing: 5px;
 text-transform: uppercase;
-color: var(–gold);
+color: #C9A84C;
 white-space: nowrap;
 }
 
-/* Philosophy */
+/* PHILOSOPHY */
 .philosophy {
-padding: 0 60px 100px;
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 80px;
-align-items: center;
+padding: 0 32px 80px;
+background-color: #080808;
 }
 .philosophy-quote {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(28px, 3.5vw, 44px);
+font-size: clamp(26px, 6vw, 44px);
 font-weight: 300;
 line-height: 1.4;
-color: var(–white);
+color: #F4F1EC;
+margin-bottom: 40px;
 }
 .philosophy-quote em {
 font-style: italic;
-color: var(–gold);
+color: #C9A84C;
 }
 .philosophy-text p {
 font-size: 13px;
 line-height: 2;
-color: var(–light);
-margin-bottom: 20px;
+color: #C8C5BE;
+margin-bottom: 18px;
 }
-.philosophy-text p:last-child { margin-bottom: 0; }
 
-/* Tiers */
+/* TIERS */
 .tiers-section {
-padding: 0 60px 120px;
-}
-.section-header {
-margin-bottom: 60px;
+padding: 0 32px 80px;
+background-color: #080808;
 }
 .section-label {
 font-size: 8px;
 letter-spacing: 5px;
 text-transform: uppercase;
-color: var(–gold);
-margin-bottom: 16px;
+color: #C9A84C;
+margin-bottom: 12px;
 }
 .section-title {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(36px, 4vw, 52px);
+font-size: clamp(30px, 7vw, 52px);
 font-weight: 300;
-color: var(–white);
+color: #F4F1EC;
+margin-bottom: 40px;
 }
 .tiers-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
+display: flex;
+flex-direction: column;
 gap: 2px;
 }
 .tier-card {
-background: var(–panel);
-padding: 48px 40px;
+background: #161616;
+padding: 36px 28px;
 position: relative;
-transition: background 0.4s;
-border-top: 1px solid var(–border);
+border-top: 1px solid #2a2a2a;
 }
-.tier-card:hover { background: #1c1c1c; }
 .tier-card.featured {
-background: var(–off-black);
-border-top: 1px solid var(–gold);
+background: #111111;
+border-top: 1px solid #C9A84C;
 }
 .tier-card.featured::before {
 content: ‘MOST PERSONAL’;
 position: absolute;
-top: -1px; right: 40px;
-background: var(–gold);
-color: var(–black);
+top: -1px; right: 28px;
+background: #C9A84C;
+color: #080808;
 font-size: 7px;
-letter-spacing: 3px;
-padding: 5px 12px;
+letter-spacing: 2px;
+padding: 4px 10px;
 font-weight: 600;
 }
 .tier-number {
 font-size: 9px;
 letter-spacing: 4px;
-color: var(–gold);
-margin-bottom: 24px;
+color: #C9A84C;
+margin-bottom: 16px;
 display: block;
 }
 .tier-name-card {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: 30px;
+font-size: 28px;
 font-weight: 300;
-color: var(–white);
-margin-bottom: 8px;
+color: #F4F1EC;
+margin-bottom: 6px;
 }
 .tier-price-card {
 font-size: 13px;
-color: var(–gold);
-letter-spacing: 1px;
-margin-bottom: 24px;
+color: #C9A84C;
+margin-bottom: 20px;
 }
 .tier-divider {
-width: 40px;
+width: 36px;
 height: 1px;
-background: var(–border);
-margin-bottom: 24px;
+background: #2a2a2a;
+margin-bottom: 20px;
 }
 .tier-desc-card {
 font-size: 12px;
 line-height: 1.9;
-color: var(–gray);
-margin-bottom: 28px;
+color: #888880;
+margin-bottom: 24px;
 }
 .tier-features {
 list-style: none;
 display: flex;
 flex-direction: column;
-gap: 12px;
+gap: 10px;
 }
 .tier-features li {
 font-size: 11px;
-color: var(–light);
+color: #C8C5BE;
 display: flex;
 align-items: flex-start;
-gap: 12px;
+gap: 10px;
 line-height: 1.6;
 }
 .tier-features li::before {
 content: ‘—’;
-color: var(–gold);
+color: #C9A84C;
 flex-shrink: 0;
-margin-top: 1px;
 }
 
-/* Process */
+/* PROCESS */
 .process-section {
-padding: 0 60px 120px;
+padding: 0 32px 80px;
+background-color: #080808;
 }
 .process-steps {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 60px;
-margin-top: 60px;
+display: flex;
+flex-direction: column;
+gap: 48px;
+margin-top: 48px;
 }
 .step-number {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: 64px;
+font-size: 56px;
 font-weight: 300;
-color: var(–border);
+color: #2a2a2a;
 line-height: 1;
-margin-bottom: 20px;
+margin-bottom: 16px;
 }
 .step-title {
-font-size: 11px;
+font-size: 10px;
 letter-spacing: 3px;
 text-transform: uppercase;
-color: var(–white);
-margin-bottom: 16px;
+color: #F4F1EC;
+margin-bottom: 12px;
 }
 .step-desc {
 font-size: 12px;
 line-height: 2;
-color: var(–gray);
+color: #888880;
 }
 
-/* Contact / Closing */
+/* CLOSING */
 .closing-section {
-padding: 100px 60px;
+padding: 80px 32px;
 text-align: center;
-position: relative;
-overflow: hidden;
-}
-.closing-section::before {
-content: ‘’;
-position: absolute;
-top: 50%; left: 50%;
-transform: translate(-50%, -50%);
-width: 500px; height: 500px;
-background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
-pointer-events: none;
+background-color: #080808;
 }
 .closing-eyebrow {
 font-size: 8px;
 letter-spacing: 5px;
 text-transform: uppercase;
-color: var(–gold);
-margin-bottom: 28px;
+color: #C9A84C;
+margin-bottom: 24px;
 }
 .closing-title {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(40px, 5vw, 70px);
+font-size: clamp(36px, 9vw, 70px);
 font-weight: 300;
 line-height: 1.2;
-color: var(–white);
-margin-bottom: 28px;
-max-width: 700px;
-margin-left: auto;
-margin-right: auto;
+color: #F4F1EC;
+margin-bottom: 24px;
 }
-.closing-title em { font-style: italic; color: var(–gold); }
+.closing-title em { font-style: italic; color: #C9A84C; }
 .closing-body {
 font-size: 13px;
 line-height: 2;
-color: var(–light);
-max-width: 480px;
-margin: 0 auto 52px;
+color: #C8C5BE;
+max-width: 360px;
+margin: 0 auto;
 }
 
-/* Footer */
+/* FOOTER */
 footer {
-border-top: 1px solid var(–border);
-padding: 32px 60px;
+border-top: 1px solid #2a2a2a;
+padding: 28px 32px;
 display: flex;
 justify-content: space-between;
 align-items: center;
+background-color: #080808;
 }
 .footer-logo {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: 18px;
+font-size: 16px;
 letter-spacing: 6px;
-color: var(–gray);
+color: #888880;
 }
 .footer-note {
-font-size: 9px;
+font-size: 8px;
 letter-spacing: 2px;
-color: var(–border);
+color: #2a2a2a;
 text-transform: uppercase;
 }
 
-/* Animations */
+/* ANIMATIONS */
 @keyframes fadeUp {
-from { opacity: 0; transform: translateY(24px); }
+from { opacity: 0; transform: translateY(20px); }
 to { opacity: 1; transform: translateY(0); }
 }
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
 
-/* Scroll reveal */
 .reveal {
 opacity: 0;
-transform: translateY(30px);
-transition: opacity 0.8s ease, transform 0.8s ease;
+transform: translateY(24px);
+transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .reveal.visible {
 opacity: 1;
@@ -477,14 +376,42 @@ transform: translateY(0);
 }
 .reveal-delay-1 { transition-delay: 0.1s; }
 .reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* DESKTOP */
+@media (min-width: 768px) {
+nav { padding: 28px 60px; }
+.nav-links { gap: 40px; }
+.hero { padding: 120px 60px 80px; }
+.divider { padding: 0 60px; margin: 80px 0; }
+.philosophy {
+padding: 0 60px 100px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
+}
+.philosophy-quote { margin-bottom: 0; }
+.tiers-section { padding: 0 60px 120px; }
+.tiers-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+flex-direction: unset;
+}
+.tier-card { padding: 48px 40px; }
+.process-section { padding: 0 60px 120px; }
+.process-steps {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+flex-direction: unset;
+gap: 60px;
+}
+.closing-section { padding: 100px 60px; }
+footer { padding: 32px 60px; }
+}
 </style>
 
 </head>
 <body>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
 <nav>
   <a href="#" class="nav-logo">SHAY</a>
@@ -492,7 +419,6 @@ transform: translateY(0);
     <li><a href="#about">About</a></li>
     <li><a href="#tiers">Programs</a></li>
     <li><a href="#process">Process</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -500,17 +426,13 @@ transform: translateY(0);
 
 <section class="hero">
   <p class="hero-eyebrow">Private Coaching · By Selection</p>
-  <h1 class="hero-name">SH<em>A</em>Y</h1>
+  <h1 class="hero-name">BY<br><em>SH</em>AY</h1>
   <p class="hero-sub">
     Not a gym. Not an app. Not for everyone.<br>
     Real coaching — diet, training, lifestyle — built around you and only you.
   </p>
   <div class="hero-cta">
     <a href="#tiers" class="btn-primary">View Programs</a>
-    <a href="#about" class="btn-ghost">How it works</a>
-  </div>
-  <div class="hero-line">
-    <span>Scroll</span>
   </div>
 </section>
 
@@ -545,7 +467,7 @@ transform: translateY(0);
 <!-- TIERS -->
 
 <section class="tiers-section" id="tiers">
-  <div class="section-header reveal">
+  <div class="reveal">
     <p class="section-label">The Programs</p>
     <h2 class="section-title">Choose Your Level of Access</h2>
   </div>
@@ -604,7 +526,7 @@ transform: translateY(0);
 <!-- PROCESS -->
 
 <section class="process-section" id="process">
-  <div class="divider" style="padding:0; margin-bottom:80px;">
+  <div class="divider" style="padding:0; margin-bottom:48px;">
     <span class="divider-text">How It Works</span>
   </div>
   <div class="process-steps">
@@ -626,17 +548,16 @@ transform: translateY(0);
   </div>
 </section>
 
-<!-- CLOSING / CONTACT -->
+<!-- CLOSING -->
 
 <section class="closing-section" id="contact">
-  <p class="closing-eyebrow reveal">Ready to Start</p>
+  <p class="closing-eyebrow reveal">By Selection Only</p>
   <h2 class="closing-title reveal">
-    If you're serious,<br><em>reach out.</em>
+    If you're serious,<br><em>you know.</em>
   </h2>
   <p class="closing-body reveal">
-    This isn't for everyone and that's the point. If you've made it here, you probably already know if this is for you.
+    This isn't for everyone and that's the point. If we've crossed paths and something clicked — that was the start of it.
   </p>
-  <a href="mailto:hello@shay.com" class="btn-primary reveal">Get In Touch</a>
 </section>
 
 <footer>
@@ -645,24 +566,10 @@ transform: translateY(0);
 </footer>
 
 <script>
-  // Cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  function animateCursor() {
-    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(animateCursor);
-  }
-  animateCursor();
-
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.1 });
   reveals.forEach(r => observer.observe(r));
 </script>
 
