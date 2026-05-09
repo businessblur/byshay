@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex, nofollow">
+<title>By Shay — Get Started</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { background: #080808; }
+
+body {
+background-color: #080808 !important;
+color: #F4F1EC !important;
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 300;
+overflow-x: hidden;
+-webkit-text-size-adjust: 100%;
+}
+
+/* NAV */
+nav {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 32px;
+border-bottom: 1px solid #1a1a1a;
+background-color: #080808;
+}
+.nav-logo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 20px;
+font-weight: 300;
+letter-spacing: 8px;
+color: #F4F1EC;
+text-decoration: none;
+}
+
+/* HEADER */
+.header {
+text-align: center;
+padding: 60px 32px 40px;
+background-color: #080808;
+}
+.header-eyebrow {
+font-size: 8px;
+letter-spacing: 5px;
+text-transform: uppercase;
+color: #C9A84C;
+margin-bottom: 20px;
+}
+.header-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(36px, 8vw, 60px);
+font-weight: 300;
+color: #F4F1EC;
+line-height: 1.1;
+margin-bottom: 20px;
+}
+.header-title em { font-style: italic; color: #C9A84C; }
+.header-sub {
+font-size: 12px;
+line-height: 2;
+color: #888880;
+max-width: 400px;
+margin: 0 auto;
+}
+
+/* DIVIDER */
+.divider {
+display: flex;
+align-items: center;
+gap: 20px;
+padding: 0 32px;
+margin: 40px 0;
+background-color: #080808;
+}
+.divider::before, .divider::after {
+content: ‘’;
+flex: 1;
+height: 1px;
+background: #2a2a2a;
+}
+.divider-text {
+font-size: 8px;
+letter-spacing: 5px;
+text-transform: uppercase;
+color: #C9A84C;
+white-space: nowrap;
+}
+
+/* TIERS */
+.tiers {
+padding: 0 24px 60px;
+display: flex;
+flex-direction: column;
+gap: 2px;
+max-width: 900px;
+margin: 0 auto;
+background-color: #080808;
+}
+.tier-card {
+background: #161616;
+padding: 36px 28px;
+position: relative;
+border-top: 1px solid #2a2a2a;
+}
+.tier-card.featured {
+background: #111111;
+border-top: 1px solid #C9A84C;
+}
+.tier-card.featured::before {
+content: ‘MOST PERSONAL’;
+position: absolute;
+top: -1px; right: 28px;
+background: #C9A84C;
+color: #080808;
+font-size: 7px;
+letter-spacing: 2px;
+padding: 4px 10px;
+font-weight: 600;
+}
+.tier-top {
+margin-bottom: 24px;
+}
+.tier-number {
+font-size: 8px;
+letter-spacing: 4px;
+color: #C9A84C;
+margin-bottom: 12px;
+display: block;
+}
+.tier-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 28px;
+font-weight: 300;
+color: #F4F1EC;
+margin-bottom: 4px;
+}
+.tier-price {
+font-size: 13px;
+color: #C9A84C;
+margin-bottom: 16px;
+}
+.tier-divider-line {
+width: 36px;
+height: 1px;
+background: #2a2a2a;
+margin-bottom: 16px;
+}
+.tier-features {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 8px;
+margin-bottom: 28px;
+}
+.tier-features li {
+font-size: 11px;
+color: #C8C5BE;
+display: flex;
+align-items: flex-start;
+gap: 10px;
+line-height: 1.6;
+}
+.tier-features li::before {
+content: ‘—’;
+color: #C9A84C;
+flex-shrink: 0;
+}
+
+/* PayPal button container override */
+.paypal-wrap {
+max-width: 320px;
+}
+
+/* ONE TIME SECTION */
+.onetime-section {
+padding: 0 24px 80px;
+max-width: 900px;
+margin: 0 auto;
+background-color: #080808;
+}
+.onetime-card {
+background: #161616;
+padding: 36px 28px;
+border-top: 1px solid #2a2a2a;
+}
+.onetime-badge {
+display: inline-block;
+font-size: 7px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: #080808;
+background: #C9A84C;
+padding: 4px 10px;
+margin-bottom: 16px;
+font-weight: 600;
+}
+.onetime-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 28px;
+font-weight: 300;
+color: #F4F1EC;
+margin-bottom: 4px;
+}
+.onetime-price {
+font-size: 13px;
+color: #C9A84C;
+margin-bottom: 16px;
+}
+.onetime-divider {
+width: 36px;
+height: 1px;
+background: #2a2a2a;
+margin-bottom: 16px;
+}
+.onetime-desc {
+font-size: 12px;
+line-height: 2;
+color: #888880;
+margin-bottom: 12px;
+}
+.onetime-areas {
+list-style: none;
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+margin-bottom: 28px;
+}
+.onetime-areas li {
+font-size: 10px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: #C9A84C;
+border: 1px solid #2a2a2a;
+padding: 6px 14px;
+}
+
+/* FOOTER */
+footer {
+border-top: 1px solid #2a2a2a;
+padding: 28px 32px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #080808;
+}
+.footer-logo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 16px;
+letter-spacing: 6px;
+color: #888880;
+}
+.footer-note {
+font-size: 8px;
+letter-spacing: 2px;
+color: #2a2a2a;
+text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+.tiers { padding: 0 60px 80px; }
+.onetime-section { padding: 0 60px 80px; }
+.tier-card { padding: 48px 40px; }
+.onetime-card { padding: 48px 40px; }
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">SHAY</a>
+</nav>
+
+<div class="header">
+  <p class="header-eyebrow">Private · By Selection Only</p>
+  <h1 class="header-title">You're <em>in.</em></h1>
+  <p class="header-sub">
+    Choose your program below. Once payment is confirmed I'll be in touch to get started.
+  </p>
+</div>
+
+<div class="divider">
+  <span class="divider-text">Weekly Programs</span>
+</div>
+
+<!-- TIERS -->
+
+<div class="tiers">
+
+  <!-- FOUNDATION -->
+
+  <div class="tier-card">
+    <div class="tier-top">
+      <span class="tier-number">01</span>
+      <h2 class="tier-name">Foundation</h2>
+      <p class="tier-price">$100 / week</p>
+      <div class="tier-divider-line"></div>
+      <ul class="tier-features">
+        <li>Custom weekly training program</li>
+        <li>Personalized nutrition framework</li>
+        <li>Goal-specific focus</li>
+        <li>Lifestyle recommendations</li>
+        <li>Check-ins via message</li>
+      </ul>
+    </div>
+    <div class="paypal-wrap">
+      <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-8R860470HU787650JNH6TM2I" target="_blank" style="display:inline-block; background:#C9A84C; color:#080808; font-family:'Montserrat',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; padding:16px 32px; text-decoration:none; font-weight:500;">Subscribe — $100/week</a>
+    </div>
+  </div>
+
+  <!-- GUIDED -->
+
+  <div class="tier-card featured">
+    <div class="tier-top">
+      <span class="tier-number">02</span>
+      <h2 class="tier-name">Guided</h2>
+      <p class="tier-price">$175 / week</p>
+      <div class="tier-divider-line"></div>
+      <ul class="tier-features">
+        <li>Everything in Foundation</li>
+        <li>Weekly voice or video check-in</li>
+        <li>Ongoing program adjustments</li>
+        <li>Deeper lifestyle & recovery coaching</li>
+        <li>Priority messaging response</li>
+      </ul>
+    </div>
+    <div class="paypal-wrap">
+      <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7TL527769S054660GNH72UZQ" target="_blank" style="display:inline-block; background:#C9A84C; color:#080808; font-family:'Montserrat',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; padding:16px 32px; text-decoration:none; font-weight:500;">Subscribe — $175/week</a>
+    </div>
+  </div>
+
+  <!-- DIRECT -->
+
+  <div class="tier-card">
+    <div class="tier-top">
+      <span class="tier-number">03</span>
+      <h2 class="tier-name">Direct</h2>
+      <p class="tier-price">$225 / week</p>
+      <div class="tier-divider-line"></div>
+      <ul class="tier-features">
+        <li>Everything in Guided</li>
+        <li>Daily access to me directly</li>
+        <li>Real-time plan adjustments</li>
+        <li>Full accountability, no gaps</li>
+        <li>Limited availability</li>
+      </ul>
+    </div>
+    <div class="paypal-wrap">
+      <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5E342465XT1291211NH72YFY" target="_blank" style="display:inline-block; background:#C9A84C; color:#080808; font-family:'Montserrat',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; padding:16px 32px; text-decoration:none; font-weight:500;">Subscribe — $225/week</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ONE TIME -->
+
+<div class="divider">
+  <span class="divider-text">One Time</span>
+</div>
+
+<div class="onetime-section">
+  <div class="onetime-card">
+    <span class="onetime-badge">One Time · $50</span>
+    <h2 class="onetime-name">Targeted Guide</h2>
+    <p class="onetime-price">$50 — one time</p>
+    <div class="onetime-divider"></div>
+    <p class="onetime-desc">
+      A fully custom PDF — workout plan, nutrition notes, and lifestyle tips built around one specific area. Tell me your focus when you reach out and I'll build it for you.
+    </p>
+    <ul class="onetime-areas">
+      <li>Glutes</li>
+      <li>Abs</li>
+      <li>Legs</li>
+    </ul>
+    <div class="paypal-wrap">
+      <a href="https://www.paypal.com/ncp/payment/ZU9A8M6KKULMY" target="_blank" style="display:inline-block; background:#C9A84C; color:#080808; font-family:'Montserrat',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase; padding:16px 32px; text-decoration:none; font-weight:500;">Pay $50 Now</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">SHAY</span>
+  <span class="footer-note">Private · Selective · Results</span>
+</footer>
+
+</body>
+</html>
